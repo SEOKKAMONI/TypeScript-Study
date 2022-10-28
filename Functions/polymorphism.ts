@@ -10,6 +10,8 @@ type SuperPrint = {
     // 이게 제네릭을 받는다는걸 알려주는 방법
     // 제네릭을 쓰게되면 타입스크립트에서 타입을 유추하고 유추한 타입으로 바뀜
     // number 로 유추 했다면 <number>(arr:number[]):void 이런식으로
+
+    // <T, M>(a: T[], b:M) => T 제네릭을 여러개 사용할때
 }
 
 const superPrint:SuperPrint = (arr) => {
