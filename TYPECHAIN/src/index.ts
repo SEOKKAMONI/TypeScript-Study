@@ -1,17 +1,17 @@
 // 블록체인은 말 그대로 여러개의 블록이 사슬처럼 묶인것
 
-import * as crypto from "crypto";
+import crypto from "crypto";
 
 interface BlockShape {
     hash: string;
     prevHash: string;
-    height: null;
+    height: number;
     data: string;
 }
 
 class Block implements BlockShape {
     public hash:string;
-    constructor(
+    constructor (
         public prevHash: string,
         public height: number,
         public data: string
@@ -21,8 +21,6 @@ class Block implements BlockShape {
     static calculateHash(prevHash:string, height:number, data:string)
     {
         const toHash= `${prevHash}${height}${data}`;
+        return crypto.createHash("sha256").update(toHash).digest("hex");
     }
 }
-
-const p = new Player()
-p.kickBall()
